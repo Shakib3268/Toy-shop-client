@@ -41,6 +41,12 @@ const Navbar = () => {
               <Link to='/'>Home</Link>
             </li>
             <li tabIndex={0}>
+            <Link to='alltoy'>
+              All Toy
+            </Link>
+            <Link to='mytoy'>
+              My Toy
+            </Link>
             <Link to='addtoy'>
               Add Toy
             </Link>
@@ -58,6 +64,12 @@ const Navbar = () => {
             <Link to='/'>Home</Link>
           </li>
           <li tabIndex={0}>
+          <Link to='alltoy'>
+              All Toy
+            </Link>
+            <Link to='mytoy'>
+              My Toy
+            </Link>
             <Link to='addtoy'>
               Add Toy
             </Link>

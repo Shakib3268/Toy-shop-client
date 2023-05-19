@@ -1,25 +1,26 @@
-import React from "react";
+
 import { useForm } from "react-hook-form";
 
 const Addtoy = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => {
-    fetch('http://localhost:5000/addtoy',{
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data),
+    fetch("http://localhost:5000/addtoy",{
+      method: "POST",
+      headers:{
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
     })
-    .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-      });
+    .then(res => res.json())
+    .then(result =>{
+      console.log(result)
+    })
+    console.log(data)
   };
   return (
     <div className="mt-4">
@@ -54,10 +55,11 @@ const Addtoy = () => {
             />
           </div>
           <select className="text-input w-1/2 mt-3" {...register("category")}>
-              <option value="Engineering"> learning toys</option>
-              <option value="Editor"> Math Toys</option>
-              <option value="writer">Language Toys</option>
-              <option value="Developer"> Science Toys</option>
+              <option value="learning toy"> learning toys</option>
+              <option value="Math toy"> Math Toys</option>
+              <option value="Language toy">Language Toys</option>
+              <option value="Science toy"> Science Toys</option>
+              <option value="play toy"> Playing Toys</option>
             </select>
             <div className="flex justify-center gap-3 mt-3">
             <label className="label">
@@ -69,7 +71,7 @@ const Addtoy = () => {
             </label>
             <input
               placeholder="Seller Name"
-              {...register("Seller-Name", { required: true })}
+              {...register("SellerName", { required: true })}
             />
           </div>
           <div className="flex justify-center gap-3 mt-3">
