@@ -12,6 +12,7 @@ const AllToy = () => {
         setToy(result);
       });
   }, []);
+
   return (
     <div>
         {
@@ -38,7 +39,7 @@ const AllToy = () => {
                   <td>{toy.category}</td>
                   <td>{toy.price}</td>
                   <td>{toy.quantity}</td>
-                  <td><button className="btn btn-primary">View Details</button></td>
+                  <td><button onClick={() => handleView()} className="btn btn-primary">View Details</button></td>
                   
                 </tr>
               </tbody>

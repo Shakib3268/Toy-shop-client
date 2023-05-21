@@ -70,7 +70,7 @@ const Navbar = () => {
             <Link to='mytoy'>
               My Toy
             </Link>
-            <Link to='addtoy'>
+           <Link to='addtoy'>
               Add Toy
             </Link>
           </li>

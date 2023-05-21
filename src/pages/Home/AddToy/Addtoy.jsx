@@ -1,7 +1,10 @@
 
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Addtoy = () => {
+  const{user}=useContext(AuthContext)
   const {
     register,
     handleSubmit,
@@ -22,6 +25,7 @@ const Addtoy = () => {
     })
     console.log(data)
   };
+
   return (
     <div className="mt-4">
       <h2 className="text-center text-2xl font-bold text-green-500 underline mb-2">Add Toy</h2>
@@ -60,12 +64,14 @@ const Addtoy = () => {
               <option value="Language toy">Language Toys</option>
               <option value="Science toy"> Science Toys</option>
               <option value="play toy"> Playing Toys</option>
+              <option value="Cricket"> Cricket Toys</option>
+              <option value="Badminton"> Badminton Toys</option>
             </select>
             <div className="flex justify-center gap-3 mt-3">
             <label className="label">
               <span className="label-text font-bold">Seller Email:</span>
             </label>
-            <input placeholder="Seller Email" {...register("Email")} />
+            <input value={user?.email} type='email'  placeholder="Seller Email" {...register("email")} />
             <label className="label">
               <span className="label-text font-bold">Seller Name:</span>
             </label>
