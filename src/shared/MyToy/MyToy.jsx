@@ -17,19 +17,19 @@ const MyToy = () => {
         console.log(data);
       });
   }, [user]);
-  const handleDelete = id =>{
-    fetch(`http://localhost:5000/mytoy/${id}`,{
-        method: "DELETE"
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/mytoy/${id}`, {
+      method: "DELETE",
     })
-    .then(res => res.json())
-    .then(data => {
-        console.log(data)
-        if(data.deletedCount>0){
-            const remaining = toys.filter(toys => toys._id !== id)
-            setToys(remaining)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+          const remaining = toys.filter((toys) => toys._id !== id);
+          setToys(remaining);
         }
-    })
-}
+      });
+  };
   return (
     <div className="overflow-x-auto w-full">
       <table className="table w-full">
@@ -42,6 +42,7 @@ const MyToy = () => {
               </label>
             </th>
             <th>Toy Name</th>
+            <th>Header</th>
             <th>Email</th>
             <th>Price</th>
             <th>Category</th>
@@ -49,9 +50,13 @@ const MyToy = () => {
           </tr>
         </thead>
         <tbody>
-            {
-                toys.map((toy,index) => <ToyRow key={toy._id} toy={toy} handleDelete={handleDelete}></ToyRow>)
-            }
+          {toys.map((toy, index) => (
+            <ToyRow
+              key={toy._id}
+              toy={toy}
+              handleDelete={handleDelete}
+            ></ToyRow>
+          ))}
         </tbody>
         {/* foot */}
       </table>
