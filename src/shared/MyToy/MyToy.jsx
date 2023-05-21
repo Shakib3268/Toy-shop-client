@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import ToyRow from "./ToyRow";
 
 const MyToy = () => {
   const { user } = useContext(AuthContext);
@@ -27,25 +28,19 @@ const MyToy = () => {
                 <input type="checkbox" className="checkbox" />
               </label>
             </th>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
-            <th></th>
+            <th>Toy Name</th>
+            <th>Email</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Available Quantity</th>
           </tr>
         </thead>
         <tbody>
-            
+            {
+                toys.map(toy => <ToyRow key={toy._id} toy={toy}></ToyRow>)
+            }
         </tbody>
         {/* foot */}
-        <tfoot>
-          <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
-            <th></th>
-          </tr>
-        </tfoot>
       </table>
     </div>
   );
