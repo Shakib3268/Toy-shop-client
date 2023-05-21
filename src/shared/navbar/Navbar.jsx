@@ -56,7 +56,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost normal-case text-xl">EDU-KIT</Link>
+        <Link to='/'><img className="h-[60px] w-[80px]" src="https://i.ibb.co/C6WSNRj/superhero-movie-3d-text-style-effect-1389-749.jpg" alt="" srcset="" /></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">

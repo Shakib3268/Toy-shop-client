@@ -3,10 +3,11 @@ import { FaBeer, FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-base-200 text-base-content">
+        <div className=' bg-black'>
+          <footer className="footer p-10 text-white">
   <div>
-    <h1 className='text-4xl font-bold'>EDU-KIT</h1>
-    <p>Edu-kit Industries Ltd.<br/>Providing reliable tech since 1992</p>
+    <img className="h-[60px] w-[80px]" src="https://i.ibb.co/C6WSNRj/superhero-movie-3d-text-style-effect-1389-749.jpg" alt="" />
+    <p>Avengers Industries Ltd.<br/>Providing reliable tech since 1992</p>
     <div className='flex gap-2 text-2xl'>
         <FaFacebook></FaFacebook>
         <FaInstagram></FaInstagram>
@@ -34,6 +35,8 @@ const Footer = () => {
     <a className="link link-hover">Cookie policy</a>
   </div>
 </footer>
+<p className='text-center text-gray-400'><small>Copyright @ 2023-All right reserved by Averngers Industrial Limited</small></p>
+        </div>
     );
 };
 

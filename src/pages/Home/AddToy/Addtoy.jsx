@@ -59,13 +59,10 @@ const Addtoy = () => {
             />
           </div>
           <select className="text-input w-1/2 mt-3" {...register("category")}>
-              <option value="learning toy"> learning toys</option>
-              <option value="Math toy"> Math Toys</option>
-              <option value="Language toy">Language Toys</option>
-              <option value="Science toy"> Science Toys</option>
-              <option value="play toy"> Playing Toys</option>
-              <option value="Cricket"> Cricket Toys</option>
-              <option value="Badminton"> Badminton Toys</option>
+              <option value="Spider toy">Spiderman toys</option>
+              <option value="Iron toy">IronMan Toys</option>
+              <option value="Hulk toy">Hulk Toys</option>
+              <option value="Thor toy"> Thor Toys</option>
             </select>
             <div className="flex justify-center gap-3 mt-3">
             <label className="label">

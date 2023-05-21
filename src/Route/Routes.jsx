@@ -7,6 +7,7 @@ import AllToy from "../shared/All toy/AllToy";
 import Login from "../shared/Login/Login";
 import MyToy from "../shared/MyToy/MyToy";
 import Register from "../shared/Register/Register";
+import SingleToy from "../shared/SingleToy/SingleToy";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
         {
           path: 'mytoy',
           element:<PrivateRoute><MyToy></MyToy></PrivateRoute>, 
+        },
+        {
+          path: '/singletoy/:id',
+          element:<SingleToy></SingleToy>,
+          loader: ({params}) => fetch(`http://localhost:5000/singletoy/${params.id}`)
         },
         {
             path: 'addtoy',

@@ -10,7 +10,7 @@ import { EffectCoverflow,Pagination,Navigation } from 'swiper';
 const Gallery = () => {
     return (
         <div className="container">
-            <h1 className="heading">Toy Gallery</h1>
+            <h1 className="text-center font-bold text-3xl">Our Top Toys</h1>
         </div>
     );
 };

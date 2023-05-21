@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import Toy from "../Toy/Toy";
 
 const AllToy = () => {
   const [toy, setToy] = useState([]);

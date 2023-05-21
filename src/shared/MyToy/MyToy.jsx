@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useContext } from "react";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 import ToyRow from "./ToyRow";
 
@@ -18,17 +19,36 @@ const MyToy = () => {
       });
   }, [user]);
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/mytoy/${id}`, {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+       
+        fetch(`http://localhost:5000/mytoy/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.deletedCount > 0) {
+           Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
           const remaining = toys.filter((toys) => toys._id !== id);
           setToys(remaining);
         }
       });
+      }
+    })
+    
   };
   return (
     <div className="overflow-x-auto w-full">
