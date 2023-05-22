@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Error from "../ErrorPage/Error";
 import Main from "../Layout/Main";
 import Addtoy from "../pages/Home/AddToy/Addtoy";
 import Blog from "../pages/Home/Blog/Blog";
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+        path: '*',
+        element: <Error></Error>
+    }
   ]);
 
   export default router

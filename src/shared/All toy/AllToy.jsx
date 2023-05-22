@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { Link} from "react-router-dom";
+import AllTable from "../All Table/AllTable";
 
 const AllToy = () => {
   const [toy, setToy] = useState([]);
@@ -15,35 +17,7 @@ const AllToy = () => {
   return (
     <div>
         {
-            toy.map((toy,index) => <div className="overflow-x-auto">
-            <table className="table w-full">
-              {/* head */}
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Seller-Name</th>
-                  <th>Toy Name</th>
-                  <th>Sub Category</th>
-                  <th>Price</th>
-                  <th>Avaiable quantity</th>
-                  <th>Details</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* row 1 */}
-                <tr>
-                  <th>{index+1}</th>
-                  <td>{toy.SellerName}</td>
-                  <td>{toy.Name}</td>
-                  <td>{toy.category}</td>
-                  <td>{toy.price}</td>
-                  <td>{toy.quantity}</td>
-                  <td><button onClick={() => handleView()} className="btn btn-primary">View Details</button></td>
-                  
-                </tr>
-              </tbody>
-            </table>
-          </div>)
+            toy.map((toy,index) => <AllTable toy={toy} index={index} key={toy._id}></AllTable>)
         }
     </div>
   )
