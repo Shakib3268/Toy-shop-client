@@ -44,12 +44,12 @@ const Navbar = () => {
             <Link to='alltoy'>
               All Toy
             </Link>
-            <Link to='mytoy'>
+            {user &&<Link to='mytoy'>
               My Toy
-            </Link>
-            <Link to='addtoy'>
+            </Link>}
+          {user && <Link to='addtoy'>
               Add Toy
-            </Link>
+            </Link>}
             </li>
             <li>
               <Link to='blog'>Blog</Link>
@@ -67,12 +67,12 @@ const Navbar = () => {
           <Link to='alltoy'>
               All Toy
             </Link>
-            <Link to='mytoy'>
+           {user && <Link to='mytoy'>
               My Toy
-            </Link>
-           <Link to='addtoy'>
+            </Link>}
+          {user && <Link to='addtoy'>
               Add Toy
-            </Link>
+            </Link>}
           </li>
           <li>
             <Link to='blog'>Blog</Link>

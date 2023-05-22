@@ -1,7 +1,10 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Toy = ({item}) => {
+  const {user}= useContext(AuthContext)
     const{_id,Name,price,quantity,ratings,picture} = item || {}
     return(
         <div className="card w-96 bg-base-100 shadow-xl">
@@ -16,7 +19,9 @@ const Toy = ({item}) => {
     <p><span className="font-bold text-xl">ratings: </span>{ratings}</p>
     <div className="card-actions justify-center">
       <div>
-      <Link to={`/singletoy/${_id}`}><button className="btn text-green-500">View details</button></Link>
+      { user ? <Link to={`/singletoy/${_id}`}><button className="btn text-green-500">View details</button></Link> :
+      <Link to='login'><button className="btn text-green-500">View details</button></Link>
+      }
       </div>
     </div>
   </div>
