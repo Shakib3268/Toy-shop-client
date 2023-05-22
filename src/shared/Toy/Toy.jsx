@@ -5,7 +5,7 @@ const Toy = ({item}) => {
     const{_id,Name,price,quantity,ratings,picture} = item || {}
     return(
         <div className="card w-96 bg-base-100 shadow-xl">
-  <figure><img src={picture} /></figure>
+  <figure><img src={picture} className='h-[500px]' /></figure>
   <div className="card-body m-0">
     <h2 className="card-title">
       {Name}

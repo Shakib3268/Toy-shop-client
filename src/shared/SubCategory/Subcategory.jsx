@@ -26,21 +26,21 @@ const Subcategory = () => {
     </TabList>
 
     <TabPanel>
-      <div className='grid grid-cols-3 gap-3'>
+      <div className='grid lg:grid-cols-3 gap-3'>
         {
             filtData.map(item => <Toy key={item._id} item={item}></Toy>)
         }
       </div>
     </TabPanel>
     <TabPanel>
-    <div className='grid grid-cols-3 gap-3'>
+    <div className='grid lg:grid-cols-3 gap-3'>
         {
             filtData.map(item => <Toy key={item._id} item={item}></Toy>)
         }
       </div>
     </TabPanel>
     <TabPanel>
-    <div className='grid grid-cols-3 gap-3'>
+    <div className='grid lg:grid-cols-3 gap-3'>
         {
             filtData.map(item => <Toy key={item._id} item={item}></Toy>)
         }
