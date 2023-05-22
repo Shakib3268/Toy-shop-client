@@ -51,10 +51,10 @@ const Login = () => {
     }
   
       return (
-          <div className="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-md">
-              <h2 className="text-2xl font-bold mb-5">Login</h2>
+          <div className="max-w-md mx-auto my-10 bg-gray-50 p-5 rounded-md shadow-md">
+              <h2 className="text-2xl text-center text-[#002D74] font-bold mb-5">Login</h2>
     <form onSubmit={handleLogin}>
-      <div className="mb-5">
+      <div className="mb-5 bg-gray-100">
         <label className="block text-gray-700 font-bold mb-2">Email</label>
         <input type="email" id="email" name="email" placeholder="you@example.com" className="border-gray-400 border-2 p-2 w-full rounded-md focus:outline-none focus:border-blue-400"required/>
       </div>
@@ -63,13 +63,18 @@ const Login = () => {
         <input type="password" id="password" name="password" placeholder="********" className="border-gray-400 border-2 p-2 w-full rounded-md focus:outline-none focus:border-blue-400" required/>
       </div>
       <div className="mb-5">
-        <button type="submit" className="bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-blue-600">Login</button>
+        <button type="submit" className="bg-[#002D74] text-center text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-blue-600">Login</button>
+      </div>
+      <div className='mt-5 text-center mb-5'>
+        <hr className='border-gray-400' />
+        OR
+        <hr className='border-gray-400' />
       </div>
       <p>Don't have an account? <Link to='/register' className='text-red-400 underline'>Register</Link> </p>
     </form>
-         <div className='ml-[100px]'>
-         <button className='flex items-center bg-green-500 p-3 m-3 text-xl mb-3' onClick={handleGoggle}> <FaGoogle></FaGoogle><span className='ml-2'>Goggle SignIn</span> </button>
-         <button className='flex items-center bg-green-500 p-3 m-4 text-xl mb-3' onClick={handleGithub }><FaGithub></FaGithub><span className='ml-2'>Github Login</span></button>
+         <div className='ml-[80px]'>
+         <button className='flex items-center bg-blue-400 p-3 m-3 text-xl mb-3' onClick={handleGoggle}> <FaGoogle></FaGoogle><span className='ml-2'>Goggle SignIn</span> </button>
+         <button className='flex items-center bg-sky-400 p-3 m-4 text-xl mb-3' onClick={handleGithub }><FaGithub></FaGithub><span className='ml-2'>Github Login</span></button>
          </div>
           </div>
       );
