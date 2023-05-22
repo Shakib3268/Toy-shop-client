@@ -79,8 +79,9 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
-      {user && <p><FaUserCircle style={{fontSize:'1.5rem'}}></FaUserCircle></p>}
+      <div className="navbar-end gap-2">
+      {user ?.photoURL ? <img src={user.photoURL} className='rounded-full me-2'/> :
+      <p><FaUserCircle style={{fontSize:'1.5rem'}}></FaUserCircle></p>}
           {user ?
            <button onClick={handleLogOut} className="btn">LogOut</button>:
            <Link to='login'><button className="btn">Login</button></Link>
