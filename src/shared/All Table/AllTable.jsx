@@ -1,8 +1,11 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const AllTable = ({toy,index}) => {
     const{price,Name,category,SellerName,quantity,_id} = toy || {}
+    const {user}=useContext(AuthContext)
     return (
         <div className="overflow-x-auto">
         <table className="table w-full">
@@ -27,7 +30,9 @@ const AllTable = ({toy,index}) => {
               <td>{category}</td>
               <td>{price}</td>
               <td>{quantity}</td>
-              <td><Link to={`/singletoy/${_id}`}><button className="btn btn-primary">View Details</button></Link></td> 
+              { user ?<td><Link to={`/singletoy/${_id}`}><button className="btn btn-primary">View Details</button></Link></td>:
+              <Link to={'/login'}><button className="btn btn-primary">View Details</button></Link>
+              }
             </tr>
           </tbody>
         </table>
