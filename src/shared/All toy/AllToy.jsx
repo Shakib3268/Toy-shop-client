@@ -24,7 +24,7 @@ const AllToy = () => {
   return (
     <div>
       <div className="text-center mt-3 mb-3">
-        <input onChange={(e) => setSearchText(e.target.value)} type="text" className="p-2"/>
+        <input onChange={(e) => setSearchText(e.target.value)} type="text" className="border-gray-400 border-2 p-2 rounded-md focus:outline-none focus:border-blue-400"/>
         <button onClick={handleSearch } className="btn">search</button>
       </div>
       <div>

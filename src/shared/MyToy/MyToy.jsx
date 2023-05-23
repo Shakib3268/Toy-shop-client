@@ -62,11 +62,11 @@ const MyToy = () => {
               </label>
             </th>
             <th>Toy Name</th>
-            <th>Header</th>
             <th>Email</th>
             <th>Price</th>
             <th>Category</th>
             <th>Available Quantity</th>
+            <td>Actions</td>
           </tr>
         </thead>
         <tbody>
