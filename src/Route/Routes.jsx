@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         {
             path: '/',
             element: <Home></Home>,
-            loader: () => fetch('http://localhost:5000/alltoy')
+            loader: () => fetch('https://toy-shop-server-ten.vercel.app/alltoy')
         },
         {
           path: 'alltoy',
@@ -33,12 +33,12 @@ const router = createBrowserRouter([
         {
           path: 'updatetoy/:id',
           element: <UpdateToy></UpdateToy>,
-          loader: ({params}) => fetch(`http://localhost:5000/updatetoy/${params.id}`)
+          loader: ({params}) => fetch(`https://toy-shop-server-ten.vercel.app/updatetoy/${params.id}`)
         },
         {
           path: '/singletoy/:id',
           element:<SingleToy></SingleToy>,
-          loader: ({params}) => fetch(`http://localhost:5000/singletoy/${params.id}`)
+          loader: ({params}) => fetch(`https://toy-shop-server-ten.vercel.app/singletoy/${params.id}`)
         },
         {
             path: 'addtoy',
