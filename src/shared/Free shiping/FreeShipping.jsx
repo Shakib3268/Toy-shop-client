@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 
 const FreeShipping = () => {
     useEffect(() =>{
-        AOS.init({duration:3000})
+        AOS.init({duration:2000})
     },[])
     return (
         <div className='container mx-auto'>
