@@ -2,6 +2,8 @@ import React from 'react';
 
 const Store = () => {
     return (
+        <div>
+            <h1></h1>
         <div className='grid lg:grid-cols-2'>
             <div className='text-center bg-[#ec6f66] text-white p-10'>
                 <h1 className='font-bold text-xl'>Our store</h1>
@@ -18,6 +20,7 @@ const Store = () => {
                 <br />
                 <button className='btn bg-[#4c976b] mt-3'>Subscribe</button>
             </div>
+        </div>
         </div>
     );
 };
