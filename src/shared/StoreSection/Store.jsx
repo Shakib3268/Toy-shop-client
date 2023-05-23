@@ -3,7 +3,7 @@ import React from 'react';
 const Store = () => {
     return (
         <div>
-            <h1></h1>
+            <h1 className='text-2xl mb-4 mt-3 font-bold underline text-center'>Our Store <span className='text-yellow-400'>Policy</span></h1>
         <div className='grid lg:grid-cols-2'>
             <div className='text-center bg-[#ec6f66] text-white p-10'>
                 <h1 className='font-bold text-xl'>Our store</h1>
