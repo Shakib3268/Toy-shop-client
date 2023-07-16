@@ -9,11 +9,11 @@ import Toy from '../Toy/Toy';
 const Subcategory = () => {
     const toys = useLoaderData()
     const [filtData,setFiltData]=useState([])
-   const [category,setCategory]= useState("Spider toy")
+   const [categories,setCategory]= useState("Spider toy")
    useEffect(() =>{
-    const filtered = toys.filter(item => item.category === category)
+    const filtered = toys.filter(item => item.categories === categories)
     setFiltData(filtered)
-   },[toys,category])
+   },[toys,categories])
     return (
         <div className='mb-5'>
             <h1 className='text-3xl font-bold text-center mb-3 underline'>Shop By <span className='text-yellow-400'>Category</span></h1>
