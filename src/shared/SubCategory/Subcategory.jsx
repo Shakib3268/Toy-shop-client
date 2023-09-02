@@ -7,48 +7,56 @@ import 'react-tabs/style/react-tabs.css';
 import Toy from '../Toy/Toy';
 
 const Subcategory = () => {
-    const toys = useLoaderData()
-    const [filtData,setFiltData]=useState([])
-   const [categories,setCategory]= useState("Spider toy")
-   useEffect(() =>{
-    const filtered = toys.filter(item => item.categories === categories)
-    setFiltData(filtered)
-   },[toys,categories])
-    return (
-        <div className='mb-5'>
-            <h1 className='text-3xl font-bold text-center mb-3 underline'>Shop By <span className='text-yellow-400'>Category</span></h1>
-            <div className='text-center'>
-            <Tabs>
-    <TabList>
-      <Tab onClick={() => setCategory('Spider toy')}>Spider Toys</Tab>
-      <Tab onClick={() => setCategory('Iron toy')}>Iron toys</Tab>
-      <Tab onClick={() => setCategory('Hulk toy')}>Hulk toys</Tab>
-    </TabList>
+  const [subcategoryValue, setsubcategoryValue] = useState([]);
 
-    <TabPanel>
-      <div className='grid lg:grid-cols-3 gap-3'>
-        {
-            filtData.map(item => <Toy key={item._id} item={item}></Toy>)
-        }
-      </div>
-    </TabPanel>
-    <TabPanel>
-    <div className='grid lg:grid-cols-3 gap-3'>
-        {
-            filtData.map(item => <Toy key={item._id} item={item}></Toy>)
-        }
-      </div>
-    </TabPanel>
-    <TabPanel>
-    <div className='grid lg:grid-cols-3 gap-3'>
-        {
-            filtData.map(item => <Toy key={item._id} item={item}></Toy>)
-        }
-      </div>
-    </TabPanel>
-  </Tabs>
-            </div>
-        </div>
+
+  useEffect(() => {
+    fetch(`https://toy-shop-server-ten.vercel.app/alltoy`)
+      .then(res => res.json())
+      .then(data => setsubcategoryValue(data))
+  }, [])
+    return (
+      <div className="mx-auto my-40 text-center">
+      <h2 className="text-4xl font-bold text-center mb-5 text-[#3f55d3]">Category: Discover Endless Fun</h2>
+
+      <p className="max-w-xl  mx-auto mb-10 text-justify px-2">Quench your thirst for playtime exploration with our oasis of toy categories. Journey through the vast desert of possibilities and uncover hidden treasures.</p>
+    
+          <div className="text-center  text-[#e44343]">
+            <Tabs>
+              <TabList>
+                <Tab>Spider Toys</Tab>
+                <Tab>IronMan Toys</Tab>
+                <Tab>Hulk Toys</Tab>
+              </TabList>
+
+              <TabPanel>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-3 mx-1'>
+                  {
+                    (subcategoryValue.filter(toy => toy.category === "Spider toy")).map(value => <Toy key={value._id}
+                      value={value}></Toy>)
+                  }
+                </div>
+              </TabPanel>
+              <TabPanel>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-3'>
+                  {
+                    (subcategoryValue.filter(toy => toy.category === "Iron toy")).map(value => <Toy key={value._id}
+                      value={value}></Toy>)
+                  }
+                </div>
+              </TabPanel>
+              <TabPanel>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-3'>
+                  {
+                    (subcategoryValue.filter(toy => toy.category === "Hulk toy")).map(value => <Toy key={value._id}
+                      value={value}></Toy>)
+                  }
+                </div>
+              </TabPanel>
+            </Tabs>
+          </div> 
+
+    </div>
     );
 };
 

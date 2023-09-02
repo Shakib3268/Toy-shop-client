@@ -1,31 +1,62 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Swal from "sweetalert2";
+import Rating from "react-rating";
 
-const Toy = ({item}) => {
+const Toy = ({value}) => {
   const {user}= useContext(AuthContext)
-    const{_id,Name,price,quantity,ratings,picture} = item || {}
+    // const{_id,Name,price,quantity,ratings,picture} = item || {}
+    const navigate =  useNavigate();
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+      }, [])
+    const { _id,Name,price,ratings,picture} = value;
+    const handleDetails = _id => {
+       if(!user)
+       {
+        Swal.fire({
+            title: 'You have to log in first to view details!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'OK'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              navigate('login');
+            }
+          })
+       }
+       else{
+        navigate(`/singletoy/${_id}`);
+       }
+    }
     return(
-        <div className="card w-96 bg-base-100 shadow-xl">
-  <figure><img src={picture} className='h-[500px]' /></figure>
-  <div className="card-body m-0">
-    <h2 className="card-title">
-      {Name}
-      <div className="badge badge-secondary">NEW</div>
-    </h2>
-    <p className="m-0 p-0"><span className="font-bold text-xl">Price: </span>{price}</p>
-    <p><span className="font-bold text-xl">Quantity: </span>{quantity}</p>
-    <p><span className="font-bold text-xl">ratings: </span>{ratings}</p>
-    <div className="card-actions justify-center">
-      <div>
-      { user ? <Link to={`/singletoy/${_id}`}><button className="btn text-green-500">View details</button></Link> :
-      <Link to='login'><button className="btn text-green-500">View details</button></Link>
-      }
+      <div data-aos="fade-up"
+      data-aos-duration="2000" className="card w-72  mx-auto bg-base-100 shadow-2xl">
+          <figure className="mx-auto">
+              <img src={picture} alt="Toys" className="w-28 h-36" />
+          </figure>
+          <div className="divider mb-0"></div>
+          <div className="card-body p-0">
+              <div className="p-3">
+                  <h2 className="card-title text-black">{Name}</h2>
+
+                  <div className="flex items-center justify-between">
+                      <p className="font-semibold text-left text-black">Price: ${price}</p>
+                       
+                  </div>
+              </div>
+                <div className="mx-auto">
+                <button onClick={()=> {handleDetails(_id)}} className="btn border-white bg-[#e51f6e] hover:bg-[#a0164d] mb-2">View Details</button>
+                </div>
+          </div>
       </div>
-    </div>
-  </div>
-</div>
     )
 };
 
